@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CustomNotification</string>
+    <string name="reply_label">reply message</string>
+</resources>
