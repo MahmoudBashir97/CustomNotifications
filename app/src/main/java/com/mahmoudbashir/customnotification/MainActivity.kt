@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn_notify = findViewById(R.id.basic_Notify_btn)
-        createNotificationChannel()
+        //createNotificationChannel()
 
         btn_notify.setOnClickListener {
             basicNotification()
@@ -50,8 +50,9 @@ class MainActivity : AppCompatActivity() {
             .setContentTitle("Notify basic")
             .setContentText("Notify Title ")
             .setStyle(NotificationCompat.BigTextStyle()
-                .bigText("Much longer text that cannot fit one line..."))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .bigText("Much longer text that cannot fit one line...")
+            ).setPriority(NotificationManager.IMPORTANCE_HIGH)
+
 
         with(NotificationManagerCompat.from(this)){
             notify(1,builder.build())
@@ -145,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "MahmoudChannel"
             val descriptionText = "new Channel for basic notification"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
